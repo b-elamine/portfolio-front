@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to My Portfolio</h1>
-      <p>{message ? `Message from the backend: ${message}` : 'Loading message...'}</p>
+      <p>{message ? `Message from the backend : ${message}` : 'Loading message...'}</p>
     </div>
   );
 }
