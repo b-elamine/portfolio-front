@@ -4,7 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px; /* Adjust padding as needed */
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 0rem;
+  padding-right: 0rem;
   background-color: rgba(15, 15, 15, 0.9);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   position: absolute;
@@ -12,6 +15,7 @@
   top: 0;
   z-index: 1000;
   overflow-x: hidden;
+  height: 60px;
 }
 
 .logo {
@@ -28,30 +32,30 @@
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 15px; /* Adjust gap as needed */
+  gap: 15px;
   font-size: 0.9rem;
   font-weight: 500;
   margin-right: 5rem;
-  
 }
 
 .nav-links li {
   text-transform: uppercase;
   color: #aaaaaa;
   background: none;
+  width: auto;
+  padding : 0;
   border: none;
-  width: 10rem;
-  line-height: 1; /* Ensure compact line height */
+  line-height: 1;
 }
 
 .nav-links li a {
   color: inherit;
   text-decoration: none;
-  display: inline; /* Ensure inline text */
+  display: inline;
 }
 
 .nav-links li a:hover {
-  color: #00d4ff; /* Hover color change only */
+  color: #00d4ff;
 }
 
 /* Separator style - only apply to items except the last one */
@@ -63,5 +67,80 @@
 }
 
 body {
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
+}
+
+/* Responsive styles */
+.hamburger {
+  display: none; /* Hidden on desktop */
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #00d4ff;
+  margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+
+  .logo {
+    margin: auto;
+  }
+
+  .navbar {
+    padding: 10px 15px;
+    flex-direction: row;
+  }
+
+  /* Hide the nav links by default and show with the .show class */
+  .nav-links {
+    display: none; /* Hidden by default on mobile */
+    flex-direction: column;
+    align-items: top;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: 100%;
+    width: 100%; /* Full width of the page */
+    background-color: rgba(0, 0, 0, 0.98);
+    color: #ffffff;
+    padding: 0px 0;
+    z-index: 9999;
+    overflow-y: hidden; /* Allows scrolling within the menu if needed */
+  }
+
+  .nav-links.show {
+    display: flex !important; /* Force the menu to show with .show */
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    margin-top: -150px;
+  }
+
+  .nav-links li a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    font-weight: 500;
+    font-size: larger;
+  }
+
+  /* Display hamburger icon on mobile */
+  .hamburger {
+    display: block;
+  }
+
+  /* Prevent body from scrolling when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .nav-links li:after {
+    display: none;
+    content: "//";
+    color: #444;
+    margin-left: 5px;
+    font-weight: lighter;
+  }
 }
