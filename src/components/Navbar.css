@@ -15,7 +15,7 @@
   top: 0;
   z-index: 1000;
   overflow-x: hidden;
-  height: 60px;
+  height: 70px;
 }
 
 .logo {
@@ -96,7 +96,7 @@ body {
     flex-direction: column;
     align-items: top;
     position: fixed;
-    top: 60px;
+    top: 70px;
     left: 0;
     height: 100%;
     width: 100%; /* Full width of the page */

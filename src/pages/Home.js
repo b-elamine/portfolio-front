@@ -5,7 +5,7 @@ import './Home.css';
 function Home() {
   const [lightPosition, setLightPosition] = useState({ x: "0px", y: "0px" });
   const [isSmooth, setIsSmooth] = useState(false); // Controls smooth return transition
-  const [isVisible, setIsVisible] = useState(true);
+  const [isSmall, setIsSmall] = useState(true); // Controls size of the sun
   const textRef = useRef(null);
   const inactivityTimeout = useRef(null);
 
@@ -14,14 +14,15 @@ function Home() {
     if (textRef.current) {
       const textBounds = textRef.current.getBoundingClientRect();
       setLightPosition({
-        x: `${textBounds.left + 20}px`,
-        y: `${textBounds.top + textBounds.height / 6}px`
+        x: `${textBounds.left + 40}px`,
+        y: `${textBounds.top + textBounds.height / 12}px`
       });
+      setIsSmall(false); // Start with the sun large in its initial position
     }
 
     const handleMouseMove = (e) => {
-      setIsVisible(true);
       setIsSmooth(false); // Disable smooth transition for real-time movement
+      setIsSmall(true); // Make the sun smaller when it follows the mouse
       setLightPosition({ x: `${e.clientX}px`, y: `${e.clientY}px` });
 
       // Reset inactivity timeout on each mouse move
@@ -30,22 +31,23 @@ function Home() {
         if (textRef.current) {
           // Enable smooth transition for returning to the initial position
           setIsSmooth(true);
+          setIsSmall(false); // Make the sun larger when it returns to the initial position
           const textBounds = textRef.current.getBoundingClientRect();
           setLightPosition({
-            x: `${textBounds.left + 20}px`,
-            y: `${textBounds.top + textBounds.height / 6}px`
+            x: `${textBounds.left + 40}px`,
+            y: `${textBounds.top + textBounds.height / 12}px`
           });
         }
       }, 800); // 0.8 seconds of inactivity
     };
 
     const handleMouseLeave = () => {
-      setIsVisible(false);
       if (textRef.current) {
+        setIsSmall(false); // Make the sun larger when it returns to the initial position
         const textBounds = textRef.current.getBoundingClientRect();
         setLightPosition({
-          x: `${textBounds.left + 20}px`,
-          y: `${textBounds.top + textBounds.height / 6}px`
+          x: `${textBounds.left + 40}px`,
+          y: `${textBounds.top + textBounds.height / 12}px`
         });
       }
     };
@@ -62,27 +64,18 @@ function Home() {
 
   return (
     <div className="home">
-      {/* Conditionally render light source based on visibility */}
-      {isVisible && (
-        <div
-          className={`light-source ${isSmooth ? "smooth" : ""}`} // Add "smooth" class conditionally
-          style={{
-            top: lightPosition.y,
-            left: lightPosition.x,
-          }}
-        ></div>
-      )}
-
-      {/* Background particles */}
-      <div className="particles">
-        {Array.from({ length: 30 }).map((_, index) => (
-          <div key={index} className="particle"></div>
-        ))}
-      </div>
+      {/* Light source effect */}
+      <div
+        className={`light-source ${isSmooth ? "smooth" : ""} ${isSmall ? "small" : ""}`}
+        style={{
+          top: lightPosition.y,
+          left: lightPosition.x,
+        }}
+      ></div>
 
       {/* Text content */}
       <div className="intro-text" ref={textRef}>
-        <h1>AMINE BECHORFA</h1>
+        <h1>Amine Bechorfa</h1>
         <p>Software Engineer, Front End & App Developer</p>
       </div>
     </div>
