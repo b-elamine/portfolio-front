@@ -1,29 +1,67 @@
-nav {
-    background-color: #333;
-    padding: 10px 0;
-    text-align: center;
-  }
+/* src/components/Navbar.css */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px; /* Adjust padding as needed */
+  background-color: rgba(15, 15, 15, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  overflow-x: hidden;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #00d4ff;
+  font-weight: bold;
+  margin-left: 5rem;
+}
+
+.logo .highlight {
+  color: #ffffff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* Adjust gap as needed */
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-right: 5rem;
   
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  li {
-    display: inline;
-  }
-  
-  a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  a:hover {
-    color: #ffcc00;
-  }
-  
+}
+
+.nav-links li {
+  text-transform: uppercase;
+  color: #aaaaaa;
+  background: none;
+  border: none;
+  width: 10rem;
+  line-height: 1; /* Ensure compact line height */
+}
+
+.nav-links li a {
+  color: inherit;
+  text-decoration: none;
+  display: inline; /* Ensure inline text */
+}
+
+.nav-links li a:hover {
+  color: #00d4ff; /* Hover color change only */
+}
+
+/* Separator style - only apply to items except the last one */
+.nav-links li:after {
+  content: "//";
+  color: #444;
+  margin-left: 5px;
+  font-weight: lighter;
+}
+
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}

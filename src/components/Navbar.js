@@ -4,8 +4,9 @@ import './Navbar.css'
 
 function Navbar() {
   return (
-    <nav>
-      <ul>
+    <nav className="navbar">
+      <h1 className="logo">b-<span className="highlight">elamine</span>.</h1>
+      <ul className='nav-links'>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/projects">Projects</Link></li>
         <li><Link to="/Expertise">Expertise</Link></li>
