@@ -8,7 +8,15 @@ function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
-  // Add or remove class from body to prevent scroll
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault(); 
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to target
+    }
+    setMenuOpen(false); 
+  };
+
   useEffect(() => {
     if (menuOpen) {
       document.body.classList.add('menu-open');
@@ -24,11 +32,11 @@ function Navbar() {
         ☰ {/* Hamburger icon */}
       </div>
       <ul className={`nav-links ${menuOpen ? "show" : ""}`}>
-        <li><a href="/">Home</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/expertise">Expertise</a></li>
-        <li><a href="/experience">Experience</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="#home" onClick={(e) => handleSmoothScroll(e, "home")}>Home</a></li>
+        <li><a href="#projects" onClick={(e) => handleSmoothScroll(e, "projects")}>Projects</a></li>
+        <li><a href="#expertise" onClick={(e) => handleSmoothScroll(e, "expertise")}>Expertise</a></li>
+        <li><a href="#experience" onClick={(e) => handleSmoothScroll(e, "experience")}>Experience</a></li>
+        <li><a href="#contact" onClick={(e) => handleSmoothScroll(e, "contact")}>Contact</a></li>
       </ul>
     </nav>
   );

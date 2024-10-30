@@ -1,5 +1,3 @@
-/* src/components/Navbar.css */
-
 .navbar {
   display: flex;
   align-items: center;
@@ -33,7 +31,7 @@
   list-style: none;
   display: flex;
   gap: 15px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   margin-right: 5rem;
 }
@@ -58,7 +56,6 @@
   color: #00d4ff;
 }
 
-/* Separator style - only apply to items except the last one */
 .nav-links li:after {
   content: "//";
   color: #444;
@@ -70,7 +67,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Responsive styles */
 .hamburger {
   display: none; /* Hidden on desktop */
   font-size: 1.5rem;
@@ -90,7 +86,6 @@ body {
     flex-direction: row;
   }
 
-  /* Hide the nav links by default and show with the .show class */
   .nav-links {
     display: none; /* Hidden by default on mobile */
     flex-direction: column;
@@ -104,17 +99,17 @@ body {
     color: #ffffff;
     padding: 0px 0;
     z-index: 9999;
-    overflow-y: hidden; /* Allows scrolling within the menu if needed */
+    overflow-y: hidden; 
   }
 
   .nav-links.show {
-    display: flex !important; /* Force the menu to show with .show */
+    display: flex ;
   }
 
   .nav-links li {
     width: 100%;
     text-align: center;
-    margin-top: -150px;
+    margin-top: 80px;
   }
 
   .nav-links li a {
@@ -126,12 +121,10 @@ body {
     font-size: larger;
   }
 
-  /* Display hamburger icon on mobile */
   .hamburger {
     display: block;
   }
 
-  /* Prevent body from scrolling when menu is open */
   body.menu-open {
     overflow: hidden;
   }

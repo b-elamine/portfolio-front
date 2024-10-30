@@ -10,28 +10,27 @@ function Home() {
   const inactivityTimeout = useRef(null);
 
   useEffect(() => {
-    // Set initial position at the end of the name
+    // Initial position of the sun circle
     if (textRef.current) {
       const textBounds = textRef.current.getBoundingClientRect();
       setLightPosition({
         x: `${textBounds.left + 40}px`,
         y: `${textBounds.top + textBounds.height / 12}px`
       });
-      setIsSmall(false); // Start with the sun large in its initial position
+      setIsSmall(false); 
     }
 
     const handleMouseMove = (e) => {
       setIsSmooth(false); // Disable smooth transition for real-time movement
-      setIsSmall(true); // Make the sun smaller when it follows the mouse
+      setIsSmall(true); 
       setLightPosition({ x: `${e.clientX}px`, y: `${e.clientY}px` });
 
       // Reset inactivity timeout on each mouse move
       clearTimeout(inactivityTimeout.current);
       inactivityTimeout.current = setTimeout(() => {
         if (textRef.current) {
-          // Enable smooth transition for returning to the initial position
           setIsSmooth(true);
-          setIsSmall(false); // Make the sun larger when it returns to the initial position
+          setIsSmall(false); 
           const textBounds = textRef.current.getBoundingClientRect();
           setLightPosition({
             x: `${textBounds.left + 40}px`,
@@ -43,7 +42,7 @@ function Home() {
 
     const handleMouseLeave = () => {
       if (textRef.current) {
-        setIsSmall(false); // Make the sun larger when it returns to the initial position
+        setIsSmall(false);
         const textBounds = textRef.current.getBoundingClientRect();
         setLightPosition({
           x: `${textBounds.left + 40}px`,

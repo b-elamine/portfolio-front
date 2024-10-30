@@ -1,26 +1,38 @@
+// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Projects from './pages/Projects';
-import Expertise from './pages/Expertise';
-import Experience from './pages/Experience'
-import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import './App.css';
 
 function App() {
   return (
-    <Router>
-       <Navbar />
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/experience" element={<Experience/>} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/expertise" element={<Expertise />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="app">
+      <Navbar />
+
+      <section id="home" className="section">
+        <Home />
+      </section>
+
+      <section id="projects" className="section">
+        <h2>Projects</h2>
+        {/* Project content */}
+      </section>
+
+      <section id="expertise" className="section">
+        <h2>Expertise</h2>
+        {/* Expertise content */}
+      </section>
+
+      <section id="experience" className="section">
+        <h2>Experience</h2>
+        {/* Experience content */}
+      </section>
+
+      <section id="contact" className="section">
+        <h2>Contact</h2>
+        {/* Contact content */}
+      </section>
+    </div>
   );
 }
 
