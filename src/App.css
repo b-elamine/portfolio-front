@@ -4,6 +4,7 @@ html, body {
   overflow-x: hidden;
   height: 100%;
   margin: 0;
+  background: 0f0f0f;
 }
 
 /* .app styling for smooth scroll */
@@ -44,5 +45,5 @@ html, body {
   #projects { background-color: #0f0f0f; }
   #expertise { background-color: #0f0f0f; }
   #experience { background-color: #0f0f0f; }
-  #contact { background-color: #0f0f0f; }
+  #contact { background-color: #000; }
   

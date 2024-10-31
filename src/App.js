@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import SideNav from './components/Sidenav';
 import Home from './pages/Home';
 import CustomCursor from './components/CustomCursor';
+import Contact from './pages/Contact';
 import './App.css';
 
 function App() {
@@ -35,8 +36,7 @@ function App() {
       </section>
 
       <section id="contact" className="section">
-        <h2>Contact</h2>
-        {/* Contact content */}
+        <Contact/>
       </section>
     </div>
   );

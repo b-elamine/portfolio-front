@@ -10,7 +10,7 @@ function Home() {
   const inactivityTimeout = useRef(null);
 
   const [typedText, setTypedText] = useState("");
-  const fullText = "Full-Stack Dev with ML Expertise.";
+  const fullText = "Full-Stack Dev with MLOps Expertise";
   
   useEffect(() => {
     setTypedText(""); 

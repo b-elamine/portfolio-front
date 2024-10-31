@@ -52,7 +52,7 @@ function CustomCursor() {
       const threshold = 0.5; // Stop movement if circle is within this distance from cursor
       if (Math.abs(xDiff) > threshold || Math.abs(yDiff) > threshold) {
         // Continue moving circle towards the cursor
-        circlePosition.current.x += xDiff ;
+        circlePosition.current.x += xDiff;
         circlePosition.current.y += yDiff ;
       } else {
         // Snap circle directly to cursor position
