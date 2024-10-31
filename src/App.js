@@ -3,14 +3,16 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import SideNav from './components/Sidenav';
 import Home from './pages/Home';
+import CustomCursor from './components/CustomCursor';
 import './App.css';
 
 function App() {
   return (
     <div className="app">
-      <div className="grid-overlay"></div> {/* Add grid overlay */}
+      <CustomCursor/>
       <Navbar />
       <SideNav />
+      <div className="grid-overlay"></div> {/* Add grid overlay */}
 
       <section id="home" className="section">
         <Home />

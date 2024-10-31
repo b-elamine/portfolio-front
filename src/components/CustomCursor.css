@@ -1,0 +1,40 @@
+/* src/components/CustomCursor.css */
+
+/* Basic styling for the cursor elements */
+.cursor-circle, .cursor-ball {
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%); /* Center the elements on their positions */
+    z-index: 9999;
+}
+
+/* Circle that follows the cursor with a delayed effect */
+.cursor-circle {
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    opacity: 1;
+    transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+
+/* Ball that follows the cursor exactly */
+.cursor-ball {
+    width: 8px;
+    height: 8px;
+    background-color: #e1ff00;
+    border-radius: 50%;
+    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+}
+
+/* Circle hides when hovering over clickable items */
+.cursor-circle.hidden {
+    opacity: 0;
+}
+
+/* Ball grows with a smooth effect on hover */
+.cursor-ball.large {
+    width: 12px;
+    height: 12px;
+    background-color: #00d4ff;
+}
