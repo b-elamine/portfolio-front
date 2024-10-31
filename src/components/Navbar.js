@@ -33,8 +33,8 @@ function Navbar() {
       </div>
       <ul className={`nav-links ${menuOpen ? "show" : ""}`}>
         <li><a href="#home" onClick={(e) => handleSmoothScroll(e, "home")}>Home</a></li>
-        <li><a href="#projects" onClick={(e) => handleSmoothScroll(e, "projects")}>Projects</a></li>
         <li><a href="#expertise" onClick={(e) => handleSmoothScroll(e, "expertise")}>Expertise</a></li>
+        <li><a href="#projects" onClick={(e) => handleSmoothScroll(e, "projects")}>Projects</a></li>
         <li><a href="#experience" onClick={(e) => handleSmoothScroll(e, "experience")}>Experience</a></li>
         <li><a href="#contact" onClick={(e) => handleSmoothScroll(e, "contact")}>Contact</a></li>
       </ul>

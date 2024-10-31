@@ -1,25 +1,45 @@
+/* Apply grid background to html and body */
 html, body {
-    scroll-behavior: smooth; 
-    overflow-x: hidden; 
-    height: 100%;
-    margin: 0;
-  }
-  
-  .app {
-    scroll-snap-type: y mandatory; 
-    overflow-y: scroll; 
-    height: 100vh; 
-  }
-  
-  .section {
-    scroll-snap-align: start; 
-    height: 100vh; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-  }
-  
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+}
+
+/* .app styling for smooth scroll */
+.app {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+/* Overlay grid on top of everything */
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows interaction with underlying elements */
+  background-image: 
+    linear-gradient(rgba(139, 139, 139, 0.02) 2px, transparent 1px), /* Horizontal lines */
+    linear-gradient(90deg, rgba(139, 139, 139, 0.02) 2px, transparent 1px); /* Vertical lines */
+  background-size: 100px 100px; /* Adjust to make larger squares */
+  z-index: 1000; /* Ensure overlay stays on top of other content */
+}
+
+/* Section styling for snap scroll */
+.section {
+  scroll-snap-align: start;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+}
+
+
   
   #projects { background-color: #0f0f0f; }
   #expertise { background-color: #0f0f0f; }

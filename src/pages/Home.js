@@ -4,40 +4,62 @@ import './Home.css';
 
 function Home() {
   const [lightPosition, setLightPosition] = useState({ x: "0px", y: "0px" });
-  const [isSmooth, setIsSmooth] = useState(false); // Controls smooth return transition
-  const [isSmall, setIsSmall] = useState(true); // Controls size of the sun
+  const [isSmooth, setIsSmooth] = useState(false);
+  const [isSmall, setIsSmall] = useState(true);
   const textRef = useRef(null);
   const inactivityTimeout = useRef(null);
 
+  const [typedText, setTypedText] = useState("");
+  const fullText = "Full-Stack Dev with ML Expertise.";
+  
   useEffect(() => {
-    // Initial position of the sun circle
+    setTypedText(""); 
+    let index = 0;
+    let currentText = ""; 
+  
+    const typeInterval = setInterval(() => {
+      if (index < fullText.length) {
+        currentText += fullText[index]; 
+        setTypedText(currentText); 
+        index++;
+      } else {
+        clearInterval(typeInterval); 
+      }
+    }, 80); // Typing speed
+  
+    return () => clearInterval(typeInterval); 
+  }, []);
+  
+  
+  
+
+  useEffect(() => {
     if (textRef.current) {
       const textBounds = textRef.current.getBoundingClientRect();
       setLightPosition({
         x: `${textBounds.left + 40}px`,
-        y: `${textBounds.top + textBounds.height / 12}px`
+        y: `${textBounds.top + textBounds.height / 12}px`,
       });
-      setIsSmall(false); 
+      setIsSmall(false);
     }
 
     const handleMouseMove = (e) => {
-      setIsSmooth(false); // Disable smooth transition for real-time movement
-      setIsSmall(true); 
+      setIsSmooth(false);
+      setIsSmall(true);
       setLightPosition({ x: `${e.clientX}px`, y: `${e.clientY}px` });
 
-      // Reset inactivity timeout on each mouse move
       clearTimeout(inactivityTimeout.current);
       inactivityTimeout.current = setTimeout(() => {
         if (textRef.current) {
           setIsSmooth(true);
-          setIsSmall(false); 
+          setIsSmall(false);
           const textBounds = textRef.current.getBoundingClientRect();
           setLightPosition({
             x: `${textBounds.left + 40}px`,
-            y: `${textBounds.top + textBounds.height / 12}px`
+            y: `${textBounds.top + textBounds.height / 12}px`,
           });
         }
-      }, 800); // 0.8 seconds of inactivity
+      }, 800);
     };
 
     const handleMouseLeave = () => {
@@ -46,7 +68,7 @@ function Home() {
         const textBounds = textRef.current.getBoundingClientRect();
         setLightPosition({
           x: `${textBounds.left + 40}px`,
-          y: `${textBounds.top + textBounds.height / 12}px`
+          y: `${textBounds.top + textBounds.height / 12}px`,
         });
       }
     };
@@ -63,7 +85,6 @@ function Home() {
 
   return (
     <div className="home">
-      {/* Light source effect */}
       <div
         className={`light-source ${isSmooth ? "smooth" : ""} ${isSmall ? "small" : ""}`}
         style={{
@@ -72,10 +93,12 @@ function Home() {
         }}
       ></div>
 
-      {/* Text content */}
       <div className="intro-text" ref={textRef}>
         <h1>Amine Bechorfa</h1>
-        <p>Software Engineer, Front End & App Developer</p>
+        <p className="typed-text">
+          <span className="console-prompt">b-elamine:~$</span> {typedText}
+          <span className="cursor">!</span>
+        </p>
       </div>
     </div>
   );

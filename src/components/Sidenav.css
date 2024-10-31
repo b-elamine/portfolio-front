@@ -1,0 +1,52 @@
+/* src/components/SideNav.css */
+
+.side-nav {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000;
+  }
+  
+  .nav-item {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-item .shape {
+    width: 12px;
+    height: 12px;
+    background-color: #00d4ff;
+    transform: rotate(45deg); /* Diamond shape */
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-item.active .shape {
+    border: 2px solid #00d4ff;
+    background-color: transparent;
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg) scale(1.2);
+    animation: turnAnimation 0.4s ease forwards;
+  }
+  
+  @keyframes turnAnimation {
+    0% {
+      transform: rotate(45deg) scale(1);
+    }
+    50% {
+      transform: rotate(90deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(45deg) scale(1.2);
+    }
+  }
+  
