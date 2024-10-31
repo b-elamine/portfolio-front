@@ -12,6 +12,7 @@
   z-index: 1000;
   overflow-x: hidden;
   height: 70px;
+  background:none;
 }
 
 .logo {
@@ -80,8 +81,10 @@ body {
   }
 
   .navbar {
-    padding: 10px 15px;
+    padding: 5px 10px;
     flex-direction: row;
+    background: rgba(0, 0, 0, 0.98);
+    width: 100%;
   }
 
   .nav-links {
@@ -89,7 +92,7 @@ body {
     flex-direction: column;
     align-items: top;
     position: fixed;
-    top: 70px;
+    top: 60px;
     left: 0;
     height: 100%;
     width: 100%; /* Full width of the page */

@@ -128,3 +128,16 @@
     font-weight: 500;
 }
 
+
+@media (max-width: 768px) {
+
+  .contact-content {
+    width: 55%;
+    height: 45%;
+  }
+
+  .main-text {
+    font-size: 2rem;
+  }
+
+}

@@ -37,3 +37,17 @@
     height: 12px;
     background-color: #00d4ff;
 }
+
+
+
+@media (max-width: 768px) {
+
+    .cursor-circle {
+      display: none;
+    }
+    .cursor-ball {
+        display: none;
+    }
+    
+  
+  }
