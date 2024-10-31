@@ -15,9 +15,9 @@
     width: 75%;
     height: 65%;
     padding: 40px;
-    border-radius: 60px;
+    border-radius: 0;
     background: rgba(15, 15, 15, 0.8);
-    border: 5px solid #00d5ff;
+    border: 2px solid #00d5ff;
     backdrop-filter: blur(20px);
     transform: scale(1.5) translateY(-50px); /* Initial state slightly zoomed and offset */
     transition:  transform 1s ease; /* Smooth transition */
@@ -65,7 +65,7 @@
     position: relative;
     cursor: pointer;
     transition: color 0.3s ease;
-    border: 2px solid transparent; /* Initial transparent border */
+    border: 8px solid transparent; /* Initial transparent border */
 }
 
 /* Text inside the button */
@@ -100,7 +100,7 @@
 /* On hover, make the arc a full circle */
 .message-button:hover::before {
     border-color: #00d4ff;
-    transform: rotate(405deg); /* Full rotation for smooth effect */
+    transform: rotate(800deg); /* Full rotation for smooth effect */
 }
 
 

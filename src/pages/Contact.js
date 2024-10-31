@@ -36,7 +36,7 @@ function Contact() {
   return (
     <div className="contact-section">
       <div className="contact-content" ref={contentRef}>
-        <p className="small-text">Got a project in mind?</p>
+        <p className="small-text">Got a project / collab in mind?</p>
         <h2 className="main-text">Let's Connect</h2>
         <div className="message-button">
           <a href="#contact-form">Write a Message</a>
