@@ -12,11 +12,10 @@
     width: 75%;
     height: 65%;
     padding: 40px;
-    border-radius: 0;
-    background: rgba(15, 15, 15, 0.8);
-    border: 2px solid #00d5ff;
+    background: #0f0f0f;
+    border: 5px solid #00d5ff;
     backdrop-filter: blur(20px);
-    transform: scale(1.5) translateY(-50px);
+    transform: scale(1.4) translateY(0);
     transition: transform 1s ease;
     display: flex;
     flex-direction: column;
@@ -203,19 +202,19 @@
     opacity: 1;
   }
   99% {
-    transform: scale(900);
+    transform: scale(850);
     opacity: 1;
+   
   }
   100% {
     opacity: 0;
-    display: none; /* This will hide the element after the animation finishes */
+    display: none; 
   }
 }
 
 
 .contact-content.clicked .message-button {
   display: none;
-  margin: 0px;
 }
 
 /* New contact details layout */
