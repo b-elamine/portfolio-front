@@ -1,7 +1,4 @@
-/* src/pages/Contact.css */
-
-  
-  .contact-section {
+.contact-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,9 +6,9 @@
     width: 100vw;
     position: relative;
     overflow: hidden;
-  }
-  
-  .contact-content {
+}
+
+.contact-content {
     width: 75%;
     height: 65%;
     padding: 40px;
@@ -19,39 +16,89 @@
     background: rgba(15, 15, 15, 0.8);
     border: 2px solid #00d5ff;
     backdrop-filter: blur(20px);
-    transform: scale(1.5) translateY(-50px); /* Initial state slightly zoomed and offset */
-    transition:  transform 1s ease; /* Smooth transition */
+    transform: scale(1.5) translateY(-50px);
+    transition: transform 1s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  .contact-content.visible {
+    position: relative;
+}
+
+.contact-content.visible {
     opacity: 1;
-    transform: scale(1) translateY(0); /* Returns to normal size and position */
-  }
-  
-  .small-text {
+    transform: scale(1) translateY(0);
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+.small-text {
     font-size: 1rem;
     letter-spacing: 2px;
-    opacity: 0.7;
+    opacity: 0.8;
     margin-bottom: 50px;
     text-align: center;
     text-transform: uppercase;
-  }
-  
-  .main-text {
+    z-index: 90000;
+}
+
+.main-text {
     font-size: 6rem;
     letter-spacing: 5px;
     font-weight: bold;
     margin: 0;
     text-align: center;
-  }
+    transition: all 1s ease;
+}
 
 
 
-  /* Basic button styles */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.8s ease 0.3s; /* Delayed fade-in */
+}
+
+
+.contact-details p {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.contact-details p:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.contact-details p:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.contact-details p:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Basic button styles */
 .message-button {
     display: flex;
     align-items: center;
@@ -65,46 +112,40 @@
     position: relative;
     cursor: pointer;
     transition: color 0.3s ease;
-    border: 8px solid transparent; /* Initial transparent border */
+    border: 8px solid transparent;
 }
 
-/* Text inside the button */
-.message-button a {
+.message-button span {
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: inherit;
-    text-align: center;
     position: relative;
-    z-index: 1; /* Keep text above pseudo-elements */
+    z-index: 1;
     transition: transform 0.3s ease;
+    text-align: center;
+    margin: auto;
 }
 
-/* Slightly enlarge text on hover */
-.message-button:hover a {
+.message-button:hover span {
     transform: scale(1.1);
 }
 
-/* Arc effect without filling */
 .message-button::before {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border-left: 8px solid transparent;
-    border-left-color: #00d4ff;
+    border-left: 8px solid #00d4ff;
     transform: rotate(45deg);
     transition: transform 0.6s ease, border 0.6s ease;
 }
 
-/* On hover, make the arc a full circle */
 .message-button:hover::before {
     border-color: #00d4ff;
-    transform: rotate(800deg); /* Full rotation for smooth effect */
+    transform: rotate(800deg);
 }
 
-
-/* Optional subtle background pulse */
 .message-button::after {
     content: '';
     position: absolute;
@@ -121,16 +162,10 @@
 
 .message-button:hover::after {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
+    opacity: 0.2;
 }
-
-.message-button:hover a {
-    font-weight: 500;
-}
-
 
 @media (max-width: 768px) {
-
   .contact-content {
     width: 55%;
     height: 45%;
@@ -139,5 +174,152 @@
   .main-text {
     font-size: 2rem;
   }
+}
 
+
+.contact-content.clicked {
+  width: 75%; 
+  height: 65%; 
+  transform: translateY(0); /* Adjust transform to keep layout stable */
+  opacity: 1;
+}
+
+/* Other animations for the main text and contact details */
+.contact-content.clicked .main-text {
+  font-size: 3rem;
+  transform: translate(0, -100px); /* Move to top left */
+  text-align: left;
+  transition: all 1.5s ease;
+}
+
+.contact-content.clicked .small-text {
+  animation: scaleAndHide 1.5s ease forwards;
+  margin-bottom: 0;
+}
+
+@keyframes scaleAndHide {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  99% {
+    transform: scale(900);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none; /* This will hide the element after the animation finishes */
+  }
+}
+
+
+.contact-content.clicked .message-button {
+  display: none;
+  margin: 0px;
+}
+
+/* New contact details layout */
+.contact-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: flex-start;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+  width: 100%;
+  padding-top: 0px;
+  margin-top: -20px;
+}
+
+.contact-content.clicked .contact-details {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.contact-info {
+  width: 45%;
+  color: #fff;
+}
+
+.contact-info h2 {
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  color: #00d5ff;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  color: #bbb;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.contact-info a {
+  color: #00d5ff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  color: #009fcc;
+}
+
+.contact-form {
+  width: 45%;
+}
+
+.contact-form label {
+  font-size: 1rem;
+  color: #bbb;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 96%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #444;
+  background: #0f0f0f;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+  color: #666;
+}
+
+.contact-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.contact-form button {
+  padding: 12px 20px;
+  background-color: #00d5ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #009fcc;
+}
+
+@media (max-width: 768px) {
+.contact-details {
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-info, .contact-form {
+    width: 100%;
+    text-align: center;
+}
 }

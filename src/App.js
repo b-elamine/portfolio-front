@@ -7,6 +7,9 @@ import CustomCursor from './components/CustomCursor';
 import Contact from './pages/Contact';
 import './App.css';
 
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
 function App() {
   return (
     <div className="app">
