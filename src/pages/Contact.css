@@ -13,7 +13,7 @@
     height: 65%;
     padding: 40px;
     background: #0f0f0f;
-    border: 5px solid #00d5ff;
+    border: 1px solid #00d5ff;
     backdrop-filter: blur(20px);
     transform: scale(1.4) translateY(0);
     transition: transform 1s ease;
