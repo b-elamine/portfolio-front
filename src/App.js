@@ -44,6 +44,5 @@ function App() {
     </div>
   );
 }
-// updt
 
 export default App;

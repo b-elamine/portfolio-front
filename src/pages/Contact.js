@@ -28,6 +28,7 @@ function Contact() {
     }
 
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (contentRef.current) observer.unobserve(contentRef.current);
     };
   }, []);
