@@ -28,6 +28,8 @@ function Contact() {
     }
 
     return () => {
+      // TODO: Understand the following reading react hooks ! 
+      
       // eslint-disable-next-line react-hooks/exhaustive-deps
       if (contentRef.current) observer.unobserve(contentRef.current);
     };
