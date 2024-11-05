@@ -8,6 +8,7 @@
     overflow: hidden;
 }
 
+
 .contact-content {
     width: 75%;
     height: 65%;
@@ -55,11 +56,11 @@
 .contact-details {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
+    justify-content: center; 
+    align-items: center; 
     gap: 10px;
     opacity: 0;
-    transition: opacity 0.8s ease 0.3s; /* Delayed fade-in */
+    transition: opacity 0.8s ease 0.3s; 
 }
 
 

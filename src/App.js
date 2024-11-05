@@ -5,6 +5,7 @@ import SideNav from './components/Sidenav';
 import Home from './pages/Home';
 import CustomCursor from './components/CustomCursor';
 import Contact from './pages/Contact';
+import Expertise from './pages/Expertise';
 import './App.css';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -24,8 +25,7 @@ function App() {
 
 
       <section id="expertise" className="section">
-        <h2>Expertise</h2>
-        {/* Expertise content */}
+        <Expertise/>
       </section>
    
       <section id="projects" className="section">
