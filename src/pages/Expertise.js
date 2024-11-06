@@ -1,11 +1,12 @@
 import React from "react";
 import "./Expertise.css";
+import pdp from "../assets/pdp.avif"
 
 function Expertise() {
   return (
     <div className="expertise-container">
       <div className="profile-card">
-        <img src="path-to-your-image" alt="Profile" className="profile-image" />
+        <img src={pdp} alt="Profile" className="profile-image" />
         <p>
           A Software Engineer who has developed countless innovative solutions.
         </p>
@@ -27,21 +28,21 @@ function Expertise() {
         </div>
         <div className="statistics">
           <div className="stat-item">
-            <h2>+12</h2>
-            <p>Years of Experience</p>
-          </div>
-          <div className="stat-item">
-            <h2>+46</h2>
-            <p>Projects Completed</p>
+            <h2>+03</h2>
+            <p>Years of Exp</p>
           </div>
           <div className="stat-item">
             <h2>+20</h2>
-            <p>Worldwide Clients</p>
+            <p>Projects</p>
+          </div>
+          <div className="stat-item">
+            <h2>+12</h2>
+            <p> Clients</p>
           </div>
         </div>
         <div className="expertise-cards">
           <div className="expertise-card">
-            <h3>Machine Learning Engineering</h3>
+            <h3>Machine Learning</h3>
             <div className="tool-icons">
               <i className="fab fa-python"></i>
               <i className="fab fa-tensorflow"></i>
@@ -51,7 +52,7 @@ function Expertise() {
           </div>
 
           <div className="expertise-card">
-            <h3>Software Engineering</h3>
+            <h3>Software Dev</h3>
             <div className="tool-icons">
               <i className="fab fa-react"></i>
               <i className="fab fa-node-js"></i>
