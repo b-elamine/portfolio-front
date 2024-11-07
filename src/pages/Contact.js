@@ -38,7 +38,7 @@ function Contact() {
 
       // Set random properties for position and animation
       star.style.left = `${Math.random() * 100}%`; // Random horizontal position
-      star.style.animationDuration = `${3 + Math.random() * 5}s`; // Random duration between 3s and 8s
+      star.style.animationDuration = `${5 + Math.random() * 9}s`; // Random duration between 3s and 8s
       star.style.transform = `scale(${0.3 + Math.random() * 0.7})`; // Random scaling for size variety
 
       // Add star to the container
@@ -52,7 +52,7 @@ function Contact() {
 
     // Start generating particles and stars at intervals
     const particleInterval = setInterval(generateParticle, 300); // Generate a particle every 300ms
-    const starInterval = setInterval(generateStar, 500); // Generate a star every 500ms
+    const starInterval = setInterval(generateStar, 1000); // Generate a star every 500ms
 
     const handleIntersection = (entries) => {
       entries.forEach((entry) => {
