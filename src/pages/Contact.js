@@ -28,8 +28,31 @@ function Contact() {
       });
     };
 
-    // Start generating particles at intervals
+    // Function to generate stars
+    const generateStar = () => {
+      const particleContainer = document.getElementById("particle-container");
+
+      // Create a new star element
+      const star = document.createElement("div");
+      star.classList.add("star");
+
+      // Set random properties for position and animation
+      star.style.left = `${Math.random() * 100}%`; // Random horizontal position
+      star.style.animationDuration = `${3 + Math.random() * 5}s`; // Random duration between 3s and 8s
+      star.style.transform = `scale(${0.3 + Math.random() * 0.7})`; // Random scaling for size variety
+
+      // Add star to the container
+      particleContainer.appendChild(star);
+
+      // Remove star when animation ends to avoid memory leaks
+      star.addEventListener("animationend", () => {
+        star.remove(); // Remove from the DOM after animation ends
+      });
+    };
+
+    // Start generating particles and stars at intervals
     const particleInterval = setInterval(generateParticle, 300); // Generate a particle every 300ms
+    const starInterval = setInterval(generateStar, 500); // Generate a star every 500ms
 
     const handleIntersection = (entries) => {
       entries.forEach((entry) => {
@@ -53,8 +76,9 @@ function Contact() {
     }
 
     return () => {
-      // Clean up particle interval and observer
+      // Clean up particle, stars interval and observer
       clearInterval(particleInterval);
+      clearInterval(starInterval);
       // eslint-disable-next-line react-hooks/exhaustive-deps
       if (contentRef.current) observer.unobserve(contentRef.current);
     };
