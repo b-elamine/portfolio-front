@@ -55,6 +55,7 @@ function Contact() {
     return () => {
       // Clean up particle interval and observer
       clearInterval(particleInterval);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (contentRef.current) observer.unobserve(contentRef.current);
     };
   }, []);
