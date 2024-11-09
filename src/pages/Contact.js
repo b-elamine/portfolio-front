@@ -6,63 +6,66 @@ function Contact() {
   const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
+    let particleInterval, starInterval;
+
     // Function to generate particles
     const generateParticle = () => {
       const particleContainer = document.getElementById("particle-container");
+      if (!particleContainer) return;
 
-      // Create a new particle element
       const particle = document.createElement("div");
       particle.classList.add("particle");
-
-      // Set random properties for position and animation
-      particle.style.left = `${Math.random() * 100}%`; // Random horizontal position
-      particle.style.animationDuration = `${3 + Math.random() * 5}s`; // Random duration between 3s and 8s
-      particle.style.transform = `scale(${0.5 + Math.random()})`; // Random scaling for size variety
-
-      // Add particle to the container
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${3 + Math.random() * 5}s`;
+      particle.style.transform = `scale(${0.5 + Math.random()})`;
       particleContainer.appendChild(particle);
 
-      // Remove particle when animation ends to avoid memory leaks
       particle.addEventListener("animationend", () => {
-        particle.remove(); // Remove from the DOM after animation ends
+        particle.remove();
       });
     };
 
     // Function to generate stars
     const generateStar = () => {
       const particleContainer = document.getElementById("particle-container");
+      if (!particleContainer) return;
 
-      // Create a new star element
       const star = document.createElement("div");
       star.classList.add("star");
-
-      // Set random properties for position and animation
-      star.style.left = `${Math.random() * 100}%`; // Random horizontal position
-      star.style.animationDuration = `${5 + Math.random() * 9}s`; // Random duration between 3s and 8s
-      star.style.transform = `scale(${0.3 + Math.random() * 0.7})`; // Random scaling for size variety
-
-      // Add star to the container
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${5 + Math.random() * 9}s`;
+      star.style.transform = `scale(${0.3 + Math.random() * 0.7})`;
       particleContainer.appendChild(star);
 
-      // Remove star when animation ends to avoid memory leaks
       star.addEventListener("animationend", () => {
-        star.remove(); // Remove from the DOM after animation ends
+        star.remove();
       });
     };
 
-    // Start generating particles and stars at intervals
-    const particleInterval = setInterval(generateParticle, 300); // Generate a particle every 300ms
-    const starInterval = setInterval(generateStar, 1000); // Generate a star every 500ms
+    // Start generating particles and stars
+    const startGeneratingParticles = () => {
+      particleInterval = setInterval(generateParticle, 300);
+      starInterval = setInterval(generateStar, 1000);
+    };
 
+    // Stop generating particles and stars
+    const stopGeneratingParticles = () => {
+      clearInterval(particleInterval);
+      clearInterval(starInterval);
+    };
+
+    // Intersection observer to detect visibility of the section
     const handleIntersection = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          startGeneratingParticles();
           contentRef.current.classList.add("visible");
           contentRef.current.classList.remove("exit");
         } else {
+          stopGeneratingParticles();
           contentRef.current.classList.add("exit");
           contentRef.current.classList.remove("visible");
-          setClicked(false); // Reset design when out of view
+          setClicked(false);
         }
       });
     };
@@ -76,10 +79,7 @@ function Contact() {
     }
 
     return () => {
-      // Clean up particle, stars interval and observer
-      clearInterval(particleInterval);
-      clearInterval(starInterval);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+      stopGeneratingParticles();
       if (contentRef.current) observer.unobserve(contentRef.current);
     };
   }, []);
@@ -106,7 +106,7 @@ function Contact() {
         {clicked && (
           <div className="contact-details">
             <div className="contact-info">
-              <h2>Drop me a line !</h2>
+              <h2>Drop me a line!</h2>
               <p>
                 Have some big ideas? Reach out and let's discuss how we can
                 bring them to life!
